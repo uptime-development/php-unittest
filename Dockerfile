@@ -1,6 +1,9 @@
-FROM php:7.2-cli
+FROM php:7.2-cli-alpine
 
-RUN docker-php-ext-install opcache pdo pdo_mysql gd zip
+RUN apk add --no-cache \
+	zlib-dev unzip	
+
+RUN docker-php-ext-install opcache pdo pdo_mysql zip
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && chmod +x /usr/local/bin/composer
