@@ -12,6 +12,6 @@ RUN docker-php-ext-install pdo_mysql\
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && chmod +x /usr/local/bin/composer
 
-RUN echo 'date.timezone = "Europe/Copenhagen"\n', > /usr/local/etc/php/conf.d/tzone.ini
+RUN echo 'date.timezone = "Europe/Copenhagen"', > /usr/local/etc/php/conf.d/tzone.ini
 
 WORKDIR /app
